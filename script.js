@@ -1,0 +1,4 @@
+const nav=document.querySelector('.nav');addEventListener('scroll',()=>nav.classList.toggle('scrolled',scrollY>30));
+const dot=document.querySelector('.cursor-dot'),ring=document.querySelector('.cursor-ring');addEventListener('mousemove',e=>{dot.style.left=ring.style.left=e.clientX+'px';dot.style.top=ring.style.top=e.clientY+'px'});document.querySelectorAll('a,.service').forEach(el=>{el.addEventListener('mouseenter',()=>ring.classList.add('active'));el.addEventListener('mouseleave',()=>ring.classList.remove('active'))});
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.12});document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
+addEventListener('scroll',()=>{const y=scrollY;document.querySelector('.hero-media').style.transform=`scale(1.04) translateY(${y*.08}px)`});
